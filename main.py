@@ -1,7 +1,13 @@
+import sys
 from stats import count_words, calc_char_frequency, sort_chars_by_freq
 
 def main():
-    book_path = "books/frankenstein.txt"
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
+    
+    book_path = sys.argv[1]
     book_text = open_book(book_path)
     num_words = count_words(book_text)
     char_frequency = calc_char_frequency(book_text)
@@ -12,6 +18,8 @@ def main():
     #print(list(char_frequency.items()))
     #print(sort_chars_by_freq(char_frequency))
     #print(sort_chars_by_freq(char_frequency))
+    
+     
     create_report(sort_chars_by_freq(char_frequency), book_path, num_words)
 
 def open_book(path):
