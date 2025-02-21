@@ -20,12 +20,16 @@ def open_book(path):
         return book_text
 
 def create_report(sorted_list, book_path, num_words):
-    print(f"--- Begin report of {book_path} ---")
-    print(f"{num_words} words found in this document \n \n")
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {book_path}...")
+    print("----------- Word Count ----------")
+    print(f"Found {num_words} total words")
+    print("--------- Character Count -------")
     for i in sorted_list:
         char_data = list(i.values())
-        print(f"The '{char_data[0]}' character was found {char_data[1]} times")
-    print("--- End report ---")
+        print(f"{char_data[0]}: {char_data[1]}")
+        #print(f"The '{char_data[0]}' character was found {char_data[1]} times")
+    print("============= END ===============")
 
 
 main()
